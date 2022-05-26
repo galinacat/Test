@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1653572171 source:c:\c++\галина\test\main.cpp
+	"TXLib.h"
+	<fstream>
+

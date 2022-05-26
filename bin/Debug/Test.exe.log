@@ -1,0 +1,201 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\C++\галина\Test\bin\Debug\Test.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00401433 в функции __exchange_and_add() в файле c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h на строке 47. Попытка записать данные по адресу 0x004C86E8 в модуле C:\C++\галина\Test\bin\Debug\Test.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2021-07-19 01:45:49 +0400], Instance: 0x004F52FC (32-bit), Flags: CMdRe0, Thread: 0x1DF8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00401433 in C:\C++\галина\Test\bin\Debug\Test.exe: __exchange_and_add() at c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h (47):
+
+     45:   static inline _Atomic_word 
+     46:   __exchange_and_add(volatile _Atomic_word* __mem, int __val)
+=>   47:   { return __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
+     48: 
+     49:   static inline void
+
+# 1 0x004014A5 in C:\C++\галина\Test\bin\Debug\Test.exe: __exchange_and_add_dispatch() at c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h (80):
+
+     78: #ifdef __GTHREADS
+     79:     if (__gthread_active_p())
+=>   80:       return __exchange_and_add(__mem, __val);
+     81:     else
+     82:       return __exchange_and_add_single(__mem, __val);
+
+# 2 0x004709BA in C:\C++\галина\Test\bin\Debug\Test.exe: _M_dispose() at c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x00471EA4 in C:\C++\галина\Test\bin\Debug\Test.exe: assign() at c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x004788D9 in C:\C++\галина\Test\bin\Debug\Test.exe: operator=() at c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0041D5F5 in C:\C++\галина\Test\bin\Debug\Test.exe: main() at C:/C++/галина/Test/main.cpp (59):
+
+     57:         int pos1 = str.find(",");
+     58:         string text_question  =  str.substr(0,pos1);
+=>   59:         form_list[n].text_question = text_question;
+     60: 
+     61:         int pos2 = str.find(",", pos1+1);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2021-07-19 01:45:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\user\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	May 12 2022 17:01:00, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	May 12 2022 17:01:59
+
+Run file:	C:\C++\галина\Test\bin\Debug\Test.exe
+Directory:	C:\C++\галина\Test
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\C++\галина\Test\bin\Debug\Test.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00401433 в функции __exchange_and_add() в файле c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h на строке 47. Попытка записать данные по адресу 0x004C86E8 в модуле C:\C++\галина\Test\bin\Debug\Test.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2021-07-19 01:45:49 +0400], Instance: 0x004F52FC (32-bit), Flags: CMdRe0, Thread: 0x1DF8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00401433 in C:\C++\галина\Test\bin\Debug\Test.exe: __exchange_and_add() at c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h (47):
+
+     45:   static inline _Atomic_word 
+     46:   __exchange_and_add(volatile _Atomic_word* __mem, int __val)
+=>   47:   { return __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
+     48: 
+     49:   static inline void
+
+# 1 0x004014A5 in C:\C++\галина\Test\bin\Debug\Test.exe: __exchange_and_add_dispatch() at c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h (80):
+
+     78: #ifdef __GTHREADS
+     79:     if (__gthread_active_p())
+=>   80:       return __exchange_and_add(__mem, __val);
+     81:     else
+     82:       return __exchange_and_add_single(__mem, __val);
+
+# 2 0x004709BA in C:\C++\галина\Test\bin\Debug\Test.exe: _M_dispose() at c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x00471EA4 in C:\C++\галина\Test\bin\Debug\Test.exe: assign() at c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x004788D9 in C:\C++\галина\Test\bin\Debug\Test.exe: operator=() at c:/users/user/downloads/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0041D5F5 in C:\C++\галина\Test\bin\Debug\Test.exe: main() at C:/C++/галина/Test/main.cpp (59):
+
+     57:         int pos1 = str.find(",");
+     58:         string text_question  =  str.substr(0,pos1);
+=>   59:         form_list[n].text_question = text_question;
+     60: 
+     61:         int pos2 = str.find(",", pos1+1);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2021-07-19 01:45:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\user\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	May 12 2022 17:01:00, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	May 12 2022 17:01:59
+
+Run file:	C:\C++\галина\Test\bin\Debug\Test.exe
+Directory:	C:\C++\галина\Test
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\C++\галина\Test\bin\Debug\Test.exe, файл: c:\c++\codeblocks\mingw\include\txlib.h, строка: 13627, функция: HDC__* {anonymous}::TX::txLoadImage(const char*, int, int, unsigned int, unsigned int),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "filename && *filename".
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-05-15 04:30:40 +0400], Instance: 0x004F42FC (32-bit), Flags: CMdRe0, Thread: 0x1E70 (Main), GetLastError(): 160 (Неверны один или несколько аргументов). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004163A9 in C:\C++\галина\Test\bin\Debug\Test.exe: txLoadImage() at c:/c++/codeblocks/mingw/include/txlib.h (13627)
+
+# 1 0x0041CF73 in C:\C++\галина\Test\bin\Debug\Test.exe: main() at C:/C++/галина/Test/main.cpp (36):
+
+     34:     int n_question = 1;
+     35:     int result=0;
+=>   36:     HDC Fon = txLoadImage ("");
+     37:     Form form;
+     38:     Form form_list[50];
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-05-15 04:30:40 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\c++\codeblocks\mingw\include\txlib.h
+Compiled:	May 26 2022 16:35:03, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	May 26 2022 16:35:38
+
+Run file:	C:\C++\галина\Test\bin\Debug\Test.exe
+Directory:	C:\C++\галина\Test
+
+--------------------------------------------------
